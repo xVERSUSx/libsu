@@ -226,7 +226,7 @@ public abstract class Shell extends ShellCompat implements Closeable {
         // Root mount master
         if (!InternalUtils.hasFlag(FLAG_NON_ROOT_SHELL) && InternalUtils.hasFlag(FLAG_MOUNT_MASTER)) {
             try {
-                shell = newInstance("su", "--mount-master");
+                shell = newInstance("sushi", "--mount-master");
                 if (shell.getStatus() != ROOT_MOUNT_MASTER)
                     shell = null;
             } catch (NoShellException ignore) {}
@@ -235,7 +235,7 @@ public abstract class Shell extends ShellCompat implements Closeable {
         // Normal root shell
         if (shell == null && !InternalUtils.hasFlag(FLAG_NON_ROOT_SHELL)) {
             try {
-                shell = newInstance("su");
+                shell = newInstance("sushi");
                 if (shell.getStatus() != ROOT_SHELL)
                     shell = null;
             } catch (NoShellException ignore) {}
