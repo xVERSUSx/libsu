@@ -51,9 +51,9 @@ import java.util.concurrent.Executors;
  * Use these high level APIs:
  * <ul>
  *     <li>{@link #sh(String...)}</li>
- *     <li>{@link #sushi(String...)}</li>
+ *     <li>{@link #su(String...)}</li>
  *     <li>{@link #sh(InputStream)}</li>
- *     <li>{@link #sushi(InputStream)}</li>
+ *     <li>{@link #su(InputStream)}</li>
  * </ul>
  * These methods will use the global shell and are more convenient for normal usage.
  * <p>
@@ -111,9 +111,9 @@ public abstract class Shell extends ShellCompat implements Closeable {
      * Note: This flag only affects the following methods:
      * <ul>
      *     <li>{@link #sh(String...)}</li>
-     *     <li>{@link #sushi(String...)}</li>
+     *     <li>{@link #su(String...)}</li>
      *     <li>{@link #sh(InputStream)}</li>
-     *     <li>{@link #sushi(InputStream)}</li>
+     *     <li>{@link #su(InputStream)}</li>
      *     <li>{@link Job#to(List)}</li>
      * </ul>
      * Check the descriptions of each method above for more details.
@@ -301,7 +301,7 @@ public abstract class Shell extends ShellCompat implements Closeable {
     /**
      * Equivalent to {@link #sh(String...)} with root access check.
      */
-    public static Job sushi(String... commands) {
+    public static Job su(String... commands) {
         return Factory.createJob(true, commands);
     }
 
@@ -334,7 +334,7 @@ public abstract class Shell extends ShellCompat implements Closeable {
     /**
      * Equivalent to {@link #sh(InputStream)} with root access check.
      */
-    public static Job sushi(@NonNull InputStream in) {
+    public static Job su(@NonNull InputStream in) {
         return Factory.createJob(true, in);
     }
 

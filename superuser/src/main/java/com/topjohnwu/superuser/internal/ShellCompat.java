@@ -101,17 +101,17 @@ public abstract class ShellCompat {
         }
 
         @NonNull
-        public static ArrayList<String> sushi(@NonNull String... commands) {
+        public static ArrayList<String> su(@NonNull String... commands) {
             ArrayList<String> result = new ArrayList<>();
-            sushi(result, commands);
+            su(result, commands);
             return result;
         }
 
-        public static void sushi(List<String> output, @NonNull String... commands) {
-            sushi(output, InternalUtils.hasFlag(FLAG_REDIRECT_STDERR) ? output : null, commands);
+        public static void su(List<String> output, @NonNull String... commands) {
+            su(output, InternalUtils.hasFlag(FLAG_REDIRECT_STDERR) ? output : null, commands);
         }
 
-        public static void sushi(List<String> output, List<String> error, @NonNull String... commands) {
+        public static void su(List<String> output, List<String> error, @NonNull String... commands) {
             syncWrapper(true, output, error, commands);
         }
 
@@ -163,24 +163,24 @@ public abstract class ShellCompat {
             asyncWrapper(false, output, error, callback, commands);
         }
 
-        public static void sushi(@NonNull String... commands) {
-            sushi(null, null, null, commands);
+        public static void su(@NonNull String... commands) {
+            su(null, null, null, commands);
         }
 
-        public static void sushi(Shell.Async.Callback callback, @NonNull String... commands) {
+        public static void su(Shell.Async.Callback callback, @NonNull String... commands) {
             ArrayList<String> result = new ArrayList<>();
-            sushi(result, InternalUtils.hasFlag(FLAG_REDIRECT_STDERR) ? result : null, callback, commands);
+            su(result, InternalUtils.hasFlag(FLAG_REDIRECT_STDERR) ? result : null, callback, commands);
         }
 
-        public static void sushi(List<String> output, @NonNull String... commands) {
-            sushi(output, InternalUtils.hasFlag(FLAG_REDIRECT_STDERR) ? output : null, null, commands);
+        public static void su(List<String> output, @NonNull String... commands) {
+            su(output, InternalUtils.hasFlag(FLAG_REDIRECT_STDERR) ? output : null, null, commands);
         }
 
-        public static void sushi(List<String> output, List<String> error, @NonNull String... commands) {
-            sushi(output, error, null, commands);
+        public static void su(List<String> output, List<String> error, @NonNull String... commands) {
+            su(output, error, null, commands);
         }
 
-        public static void sushi(List<String> output, List<String> error,
+        public static void su(List<String> output, List<String> error,
                               Shell.Async.Callback callback, @NonNull String... commands) {
             asyncWrapper(true, output, error, callback, commands);
         }
