@@ -288,7 +288,7 @@ public class ShellFile extends File {
         if (!isDirectory())
             return null;
         FilenameFilter defFilter = (file, name) -> name.equals(".") || name.equals("..");
-        List<String> out = Shell.su(genCmd("ls -a \"$FILE\"")).to(new LinkedList<>(), null)
+        List<String> out = Shell.sushi(genCmd("ls -a \"$FILE\"")).to(new LinkedList<>(), null)
                 .exec().getOut();
         String name;
         for (ListIterator<String> it = out.listIterator(); it.hasNext();) {
